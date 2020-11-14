@@ -28,3 +28,7 @@ Nuclear Dawn,
 Starbound,
 Space Engineers,
 Quake Live;
+
+=====================================================================
+
+VK: vk.com/id140052588
