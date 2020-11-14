@@ -22,6 +22,7 @@ namespace DT_SearchPlayerRestart
             f2 = new Form2();
             Connector = new Connector();
             Task.Run(() => Connector.Start());
+            Task.Run(() => Connector.ScanerServerList());
             Application.Run(Form1);
         }
     }

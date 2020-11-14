@@ -16,11 +16,11 @@ namespace DT_SearchPlayerRestart
         private const string XPathHostName = "//div[@class='col-sm-6'][1]/table[@class='table table-bordered table-striped']/tbody/tr[2]/td[2]";
         private const string XPathGame = "//div/div[1]/div[1]/table/tbody/tr[4]/td[2]";
         public string ServerIp = "", ServerName, ServerPlayersOM, ServerGame, ServerMap;
-        /*public List<> PlayerList = new */
+        int Count = 0;
+        int Count2 = 0;
         private HtmlAgilityPack.HtmlDocument HtmlDoc { get; set; }
         int sum;
         string Player;
-        //ListBox.ObjectCollection PlayerList = Program.Form1.ListBoxPlayersSS.Items;
         public void Start()
         {
             while (true)
@@ -91,14 +91,108 @@ namespace DT_SearchPlayerRestart
                                 SetInfo("NaN", "NaN", "NaN", "NaN");
                             }
                         }
+                        Program.Form1.Invoke((MethodInvoker)delegate {
+                            Program.Form1.HeadName.Text = "DeletedTest - SearchServerPlayer";
+                        });
                     }
                 }
-                catch (Exception e) { MessageBox.Show(e.ToString()); }
+                catch (System.Net.WebException) 
+                {
+                    Program.Form1.Invoke((MethodInvoker)delegate {
+                        Program.Form1.HeadName.Text = "DeletedTest - No internet connection";
+
+                    });
+                }
+                catch (Exception e) { MessageBox.Show(e.ToString()); } 
             }
         }
         public void ScanerServerList()
         {
+            while (true) {
+                try 
+                { 
+                    Program.Form1.Invoke((MethodInvoker)delegate {
+                        Count = Program.Form1.ComboBox_Servers.Items.Count;
+                    });
+                    string players = "";
+                    for (int i = 0; Count > i; i++)
+                    {
+                        string SIP = Convert.ToString(Program.Form1.ComboBox_Servers.Items[i]);
+                        players = players + GetPlayerList(SIP);
+                    }
+                    Program.Form1.Invoke((MethodInvoker)delegate {
+                        Count2 = Program.Form1.ListBoxEnabled.Items.Count;
+                        Program.Form1.ListBox_OnlinePlayers.Items.Clear();
+                    });
 
+                    for (int i2 = 0; Count2 > i2; i2++)
+                    {
+                        string EPlayer = Convert.ToString(Program.Form1.ListBoxEnabled.Items[i2]);
+                        if (players.Contains(EPlayer))
+                        {
+                            if (!Program.Form1.ListBox_OnlinePlayers.Items.Contains(EPlayer))
+                            {
+                                Program.Form1.Invoke((MethodInvoker)delegate {
+                                    Program.Form1.ListBox_OnlinePlayers.Items.Add(EPlayer);
+                                });
+                            }
+                        }
+                    }
+                } catch (Exception){}
+            }
+        }
+        public string GetPlayerList(string SIP)
+        {
+            string PlayerList = "";
+            try
+            {
+                HtmlWeb web = new HtmlWeb()
+                {
+                    AutoDetectEncoding = false,
+                    OverrideEncoding = Encoding.GetEncoding("utf-8")
+                };
+                    HtmlDoc = web.Load("https://3s.deletedtest.space/?serverip=" + SIP);
+                    if (HtmlDoc.DocumentNode.SelectSingleNode($"{XPathHostName}") != null)
+                    {
+                        sum = 1;
+                        Player = "";
+                        while (true)
+                        {
+                            try
+                            {
+                                if (HtmlDoc.DocumentNode.SelectSingleNode($"//div[@class='col-sm-6'][2]/table[@class='table table-bordered table-striped']/tbody/tr[{sum}]/td[{1}]") != null)
+                                {
+                                    Player = HtmlDoc.DocumentNode.SelectSingleNode($"//div[@class='col-sm-6'][2]/table[@class='table table-bordered table-striped']/tbody/tr[{sum}]/td[{1}]").InnerText;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                                if (Player.Length != 0)
+                                {
+                                    PlayerList += Player;
+                                }
+                                sum++;
+                            }
+                            catch (Exception)
+                            {
+                                return PlayerList;
+                            }
+                        }
+                    }
+                    Program.Form1.Invoke((MethodInvoker)delegate {
+                        Program.Form1.HeadName.Text = "DeletedTest - SearchServerPlayer";
+                    });
+                return PlayerList;
+            }
+            catch (System.Net.WebException)
+            {
+                Program.Form1.Invoke((MethodInvoker)delegate {
+                    Program.Form1.HeadName.Text = "DeletedTest - No internet connection";
+                });
+            }
+            catch (Exception e) { MessageBox.Show(e.ToString()); }
+            return "";
         }
         public void SetInfo(string Map, string Name, string Players, string Game)
         {

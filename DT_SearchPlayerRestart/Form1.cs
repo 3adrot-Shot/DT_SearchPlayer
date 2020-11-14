@@ -157,7 +157,7 @@ namespace DT_SearchPlayerRestart
 
         private void Button_DelServer_Click(object sender, EventArgs e)
         {
-
+            Program.Connector.ScanerServerList();
         }
 
         private void ComboBox_Servers_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,14 +169,25 @@ namespace DT_SearchPlayerRestart
             }
         }
 
-        private void panel_Server_Paint(object sender, PaintEventArgs e)
+        private void Panel_Server_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label_S_Info3_Click(object sender, EventArgs e)
+        private void Label_S_Info3_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.vk.com/id140052588");
+        }
+
+        private void Label_S_Info4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/3adrot-Shot/DT_SearchPlayer");
+        }
+
+        private void Label_S_Info7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://3s.deletedtest.space/DT_SearchServerPlayer");
+
         }
     }
 }

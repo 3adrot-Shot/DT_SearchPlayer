@@ -139,7 +139,7 @@
             this.TextBox_Ip.Name = "TextBox_Ip";
             this.TextBox_Ip.Size = new System.Drawing.Size(157, 20);
             this.TextBox_Ip.TabIndex = 6;
-            this.TextBox_Ip.Text = "62.122.213.145:27777";
+            this.TextBox_Ip.Text = "80.93.187.158:27215";
             this.TextBox_Ip.TextChanged += new System.EventHandler(this.TextBox_Ip_TextChanged);
             // 
             // ButtonAdd

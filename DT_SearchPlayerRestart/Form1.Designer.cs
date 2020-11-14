@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.Panel_Line = new System.Windows.Forms.Panel();
             this.AddEnable2Disable = new System.Windows.Forms.Button();
             this.AddDisable2Enable = new System.Windows.Forms.Button();
             this.label_S_DisableLB = new System.Windows.Forms.Label();
@@ -37,8 +38,10 @@
             this.ListBoxDisable = new System.Windows.Forms.ListBox();
             this.ListBoxEnabled = new System.Windows.Forms.ListBox();
             this.panel_Server = new System.Windows.Forms.Panel();
+            this.Panel_Line2 = new System.Windows.Forms.Panel();
             this.Button_DelServer = new System.Windows.Forms.Button();
             this.label_Game = new System.Windows.Forms.Label();
+            this.Label_S_Name = new System.Windows.Forms.Label();
             this.label_Players = new System.Windows.Forms.Label();
             this.Button_AddServer = new System.Windows.Forms.Button();
             this.label_S_PlayerList = new System.Windows.Forms.Label();
@@ -47,9 +50,20 @@
             this.label_S_Players = new System.Windows.Forms.Label();
             this.ListBoxPlayersSS = new System.Windows.Forms.ListBox();
             this.label_Map = new System.Windows.Forms.Label();
-            this.label_S_Info = new System.Windows.Forms.Label();
             this.label_S_Map = new System.Windows.Forms.Label();
             this.ComboBox_Servers = new System.Windows.Forms.ComboBox();
+            this.Panel_OnlinePlayers = new System.Windows.Forms.Panel();
+            this.label_S_Info7 = new System.Windows.Forms.LinkLabel();
+            this.label_S_Info4 = new System.Windows.Forms.LinkLabel();
+            this.label_S_Info3 = new System.Windows.Forms.LinkLabel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ListBox_OnlinePlayers = new System.Windows.Forms.ListBox();
+            this.Label_S_OPL = new System.Windows.Forms.Label();
+            this.label_S_Info6 = new System.Windows.Forms.Label();
+            this.label_S_Info5 = new System.Windows.Forms.Label();
+            this.label_S_Info2 = new System.Windows.Forms.Label();
+            this.label_S_Info = new System.Windows.Forms.Label();
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.ButtonDel = new System.Windows.Forms.Button();
             this.textBoxNick = new System.Windows.Forms.TextBox();
@@ -61,17 +75,10 @@
             this.PictureBox_Small = new System.Windows.Forms.PictureBox();
             this.ExitButton = new System.Windows.Forms.Panel();
             this.pictureBox_Exit = new System.Windows.Forms.PictureBox();
-            this.Panel_Line = new System.Windows.Forms.Panel();
-            this.Panel_OnlinePlayers = new System.Windows.Forms.Panel();
-            this.ListBox_OnlinePlayers = new System.Windows.Forms.ListBox();
-            this.Panel_Line2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label_S_Info2 = new System.Windows.Forms.Label();
-            this.label_S_Info3 = new System.Windows.Forms.LinkLabel();
             this.MainPanel.SuspendLayout();
             this.panel_Server.SuspendLayout();
+            this.Panel_OnlinePlayers.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.Header.SuspendLayout();
             this.HeadLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Logo)).BeginInit();
@@ -79,8 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox_Small)).BeginInit();
             this.ExitButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Exit)).BeginInit();
-            this.Panel_OnlinePlayers.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -104,6 +109,15 @@
             this.MainPanel.Size = new System.Drawing.Size(664, 337);
             this.MainPanel.TabIndex = 1;
             this.MainPanel.Click += new System.EventHandler(this.MainPanel_Click);
+            // 
+            // Panel_Line
+            // 
+            this.Panel_Line.BackColor = System.Drawing.Color.Black;
+            this.Panel_Line.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Panel_Line.Location = new System.Drawing.Point(222, 30);
+            this.Panel_Line.Name = "Panel_Line";
+            this.Panel_Line.Size = new System.Drawing.Size(1, 307);
+            this.Panel_Line.TabIndex = 9;
             // 
             // AddEnable2Disable
             // 
@@ -180,7 +194,7 @@
             this.ListBoxEnabled.FormattingEnabled = true;
             this.ListBoxEnabled.Items.AddRange(new object[] {
             "3adrot-Shot",
-            "Gh[0]st"});
+            "gh[0]st"});
             this.ListBoxEnabled.Location = new System.Drawing.Point(12, 75);
             this.ListBoxEnabled.Name = "ListBoxEnabled";
             this.ListBoxEnabled.Size = new System.Drawing.Size(205, 108);
@@ -190,9 +204,9 @@
             // panel_Server
             // 
             this.panel_Server.Controls.Add(this.Panel_Line2);
-            this.panel_Server.Controls.Add(this.Panel_OnlinePlayers);
             this.panel_Server.Controls.Add(this.Button_DelServer);
             this.panel_Server.Controls.Add(this.label_Game);
+            this.panel_Server.Controls.Add(this.Label_S_Name);
             this.panel_Server.Controls.Add(this.label_Players);
             this.panel_Server.Controls.Add(this.Button_AddServer);
             this.panel_Server.Controls.Add(this.label_S_PlayerList);
@@ -203,12 +217,22 @@
             this.panel_Server.Controls.Add(this.label_Map);
             this.panel_Server.Controls.Add(this.label_S_Map);
             this.panel_Server.Controls.Add(this.ComboBox_Servers);
+            this.panel_Server.Controls.Add(this.Panel_OnlinePlayers);
             this.panel_Server.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel_Server.Location = new System.Drawing.Point(223, 30);
             this.panel_Server.Name = "panel_Server";
             this.panel_Server.Size = new System.Drawing.Size(441, 307);
             this.panel_Server.TabIndex = 5;
-            this.panel_Server.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Server_Paint);
+            this.panel_Server.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Server_Paint);
+            // 
+            // Panel_Line2
+            // 
+            this.Panel_Line2.BackColor = System.Drawing.Color.Black;
+            this.Panel_Line2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Panel_Line2.Location = new System.Drawing.Point(216, 0);
+            this.Panel_Line2.Name = "Panel_Line2";
+            this.Panel_Line2.Size = new System.Drawing.Size(1, 307);
+            this.Panel_Line2.TabIndex = 9;
             // 
             // Button_DelServer
             // 
@@ -235,6 +259,17 @@
             this.label_Game.Size = new System.Drawing.Size(29, 13);
             this.label_Game.TabIndex = 1;
             this.label_Game.Text = "NaN";
+            // 
+            // Label_S_Name
+            // 
+            this.Label_S_Name.AutoSize = true;
+            this.Label_S_Name.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.Label_S_Name.Location = new System.Drawing.Point(3, 52);
+            this.Label_S_Name.Name = "Label_S_Name";
+            this.Label_S_Name.Size = new System.Drawing.Size(38, 13);
+            this.Label_S_Name.TabIndex = 1;
+            this.Label_S_Name.Text = "Name:";
+            this.Label_S_Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label_Players
             // 
@@ -286,7 +321,8 @@
             // 
             this.label_Name.AutoSize = true;
             this.label_Name.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label_Name.Location = new System.Drawing.Point(36, 52);
+            this.label_Name.Location = new System.Drawing.Point(37, 52);
+            this.label_Name.MaximumSize = new System.Drawing.Size(173, 13);
             this.label_Name.Name = "label_Name";
             this.label_Name.Size = new System.Drawing.Size(29, 13);
             this.label_Name.TabIndex = 1;
@@ -323,17 +359,6 @@
             this.label_Map.TabIndex = 1;
             this.label_Map.Text = "NaN";
             // 
-            // label_S_Info
-            // 
-            this.label_S_Info.AutoSize = true;
-            this.label_S_Info.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label_S_Info.Location = new System.Drawing.Point(50, 270);
-            this.label_S_Info.Name = "label_S_Info";
-            this.label_S_Info.Size = new System.Drawing.Size(125, 13);
-            this.label_S_Info.TabIndex = 1;
-            this.label_S_Info.Text = "Creator: Ajnur Karachurin\r\n";
-            this.label_S_Info.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label_S_Map
             // 
             this.label_S_Map.AutoSize = true;
@@ -351,12 +376,155 @@
             this.ComboBox_Servers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ComboBox_Servers.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.ComboBox_Servers.FormattingEnabled = true;
+            this.ComboBox_Servers.Items.AddRange(new object[] {
+            "62.122.213.145:27777"});
             this.ComboBox_Servers.Location = new System.Drawing.Point(6, 26);
             this.ComboBox_Servers.Name = "ComboBox_Servers";
             this.ComboBox_Servers.Size = new System.Drawing.Size(205, 21);
             this.ComboBox_Servers.Sorted = true;
             this.ComboBox_Servers.TabIndex = 0;
             this.ComboBox_Servers.SelectedIndexChanged += new System.EventHandler(this.ComboBox_Servers_SelectedIndexChanged);
+            // 
+            // Panel_OnlinePlayers
+            // 
+            this.Panel_OnlinePlayers.Controls.Add(this.label_S_Info7);
+            this.Panel_OnlinePlayers.Controls.Add(this.label_S_Info4);
+            this.Panel_OnlinePlayers.Controls.Add(this.label_S_Info3);
+            this.Panel_OnlinePlayers.Controls.Add(this.panel2);
+            this.Panel_OnlinePlayers.Controls.Add(this.panel1);
+            this.Panel_OnlinePlayers.Controls.Add(this.label_S_Info6);
+            this.Panel_OnlinePlayers.Controls.Add(this.label_S_Info5);
+            this.Panel_OnlinePlayers.Controls.Add(this.label_S_Info2);
+            this.Panel_OnlinePlayers.Controls.Add(this.label_S_Info);
+            this.Panel_OnlinePlayers.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Panel_OnlinePlayers.Location = new System.Drawing.Point(217, 0);
+            this.Panel_OnlinePlayers.Name = "Panel_OnlinePlayers";
+            this.Panel_OnlinePlayers.Size = new System.Drawing.Size(224, 307);
+            this.Panel_OnlinePlayers.TabIndex = 8;
+            // 
+            // label_S_Info7
+            // 
+            this.label_S_Info7.AutoSize = true;
+            this.label_S_Info7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_S_Info7.Location = new System.Drawing.Point(61, 272);
+            this.label_S_Info7.Name = "label_S_Info7";
+            this.label_S_Info7.Size = new System.Drawing.Size(133, 16);
+            this.label_S_Info7.TabIndex = 9;
+            this.label_S_Info7.TabStop = true;
+            this.label_S_Info7.Text = "3s.deletedtest.space";
+            this.label_S_Info7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Label_S_Info7_LinkClicked);
+            // 
+            // label_S_Info4
+            // 
+            this.label_S_Info4.AutoSize = true;
+            this.label_S_Info4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_S_Info4.Location = new System.Drawing.Point(116, 255);
+            this.label_S_Info4.Name = "label_S_Info4";
+            this.label_S_Info4.Size = new System.Drawing.Size(73, 16);
+            this.label_S_Info4.TabIndex = 9;
+            this.label_S_Info4.TabStop = true;
+            this.label_S_Info4.Text = "github.com";
+            this.label_S_Info4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Label_S_Info4_LinkClicked);
+            // 
+            // label_S_Info3
+            // 
+            this.label_S_Info3.AutoSize = true;
+            this.label_S_Info3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_S_Info3.Location = new System.Drawing.Point(62, 240);
+            this.label_S_Info3.Name = "label_S_Info3";
+            this.label_S_Info3.Size = new System.Drawing.Size(118, 16);
+            this.label_S_Info3.TabIndex = 9;
+            this.label_S_Info3.TabStop = true;
+            this.label_S_Info3.Text = "vk.com/3adrotshot";
+            this.label_S_Info3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Label_S_Info3_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 204);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(224, 1);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ListBox_OnlinePlayers);
+            this.panel1.Controls.Add(this.Label_S_OPL);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(224, 204);
+            this.panel1.TabIndex = 7;
+            // 
+            // ListBox_OnlinePlayers
+            // 
+            this.ListBox_OnlinePlayers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.ListBox_OnlinePlayers.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.ListBox_OnlinePlayers.FormattingEnabled = true;
+            this.ListBox_OnlinePlayers.Location = new System.Drawing.Point(7, 26);
+            this.ListBox_OnlinePlayers.Name = "ListBox_OnlinePlayers";
+            this.ListBox_OnlinePlayers.Size = new System.Drawing.Size(205, 173);
+            this.ListBox_OnlinePlayers.TabIndex = 6;
+            this.ListBox_OnlinePlayers.SelectedIndexChanged += new System.EventHandler(this.ListBoxPlayersSS_SelectedIndexChanged);
+            // 
+            // Label_S_OPL
+            // 
+            this.Label_S_OPL.AutoSize = true;
+            this.Label_S_OPL.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.Label_S_OPL.Location = new System.Drawing.Point(7, 10);
+            this.Label_S_OPL.Name = "Label_S_OPL";
+            this.Label_S_OPL.Size = new System.Drawing.Size(86, 13);
+            this.Label_S_OPL.TabIndex = 1;
+            this.Label_S_OPL.Text = "Online player list:";
+            // 
+            // label_S_Info6
+            // 
+            this.label_S_Info6.AutoSize = true;
+            this.label_S_Info6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_S_Info6.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.label_S_Info6.Location = new System.Drawing.Point(33, 272);
+            this.label_S_Info6.Name = "label_S_Info6";
+            this.label_S_Info6.Size = new System.Drawing.Size(34, 16);
+            this.label_S_Info6.TabIndex = 1;
+            this.label_S_Info6.Text = "Site:";
+            this.label_S_Info6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_S_Info5
+            // 
+            this.label_S_Info5.AutoSize = true;
+            this.label_S_Info5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_S_Info5.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.label_S_Info5.Location = new System.Drawing.Point(34, 255);
+            this.label_S_Info5.Name = "label_S_Info5";
+            this.label_S_Info5.Size = new System.Drawing.Size(88, 16);
+            this.label_S_Info5.TabIndex = 1;
+            this.label_S_Info5.Text = "Source code:";
+            this.label_S_Info5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_S_Info2
+            // 
+            this.label_S_Info2.AutoSize = true;
+            this.label_S_Info2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_S_Info2.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.label_S_Info2.Location = new System.Drawing.Point(40, 240);
+            this.label_S_Info2.Name = "label_S_Info2";
+            this.label_S_Info2.Size = new System.Drawing.Size(28, 16);
+            this.label_S_Info2.TabIndex = 1;
+            this.label_S_Info2.Text = "VK:";
+            this.label_S_Info2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_S_Info
+            // 
+            this.label_S_Info.AutoSize = true;
+            this.label_S_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_S_Info.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.label_S_Info.Location = new System.Drawing.Point(34, 225);
+            this.label_S_Info.Name = "label_S_Info";
+            this.label_S_Info.Size = new System.Drawing.Size(154, 16);
+            this.label_S_Info.TabIndex = 1;
+            this.label_S_Info.Text = "Creator: Ajnur Karachurin\r\n";
+            this.label_S_Info.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ButtonAdd
             // 
@@ -498,99 +666,6 @@
             this.pictureBox_Exit.TabIndex = 3;
             this.pictureBox_Exit.TabStop = false;
             // 
-            // Panel_Line
-            // 
-            this.Panel_Line.BackColor = System.Drawing.Color.Black;
-            this.Panel_Line.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Panel_Line.Location = new System.Drawing.Point(222, 30);
-            this.Panel_Line.Name = "Panel_Line";
-            this.Panel_Line.Size = new System.Drawing.Size(1, 307);
-            this.Panel_Line.TabIndex = 9;
-            // 
-            // Panel_OnlinePlayers
-            // 
-            this.Panel_OnlinePlayers.Controls.Add(this.label_S_Info3);
-            this.Panel_OnlinePlayers.Controls.Add(this.panel2);
-            this.Panel_OnlinePlayers.Controls.Add(this.panel1);
-            this.Panel_OnlinePlayers.Controls.Add(this.label_S_Info2);
-            this.Panel_OnlinePlayers.Controls.Add(this.label_S_Info);
-            this.Panel_OnlinePlayers.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Panel_OnlinePlayers.Location = new System.Drawing.Point(217, 0);
-            this.Panel_OnlinePlayers.Name = "Panel_OnlinePlayers";
-            this.Panel_OnlinePlayers.Size = new System.Drawing.Size(224, 307);
-            this.Panel_OnlinePlayers.TabIndex = 8;
-            // 
-            // ListBox_OnlinePlayers
-            // 
-            this.ListBox_OnlinePlayers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.ListBox_OnlinePlayers.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.ListBox_OnlinePlayers.FormattingEnabled = true;
-            this.ListBox_OnlinePlayers.Location = new System.Drawing.Point(7, 26);
-            this.ListBox_OnlinePlayers.Name = "ListBox_OnlinePlayers";
-            this.ListBox_OnlinePlayers.Size = new System.Drawing.Size(205, 173);
-            this.ListBox_OnlinePlayers.TabIndex = 6;
-            this.ListBox_OnlinePlayers.SelectedIndexChanged += new System.EventHandler(this.ListBoxPlayersSS_SelectedIndexChanged);
-            // 
-            // Panel_Line2
-            // 
-            this.Panel_Line2.BackColor = System.Drawing.Color.Black;
-            this.Panel_Line2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Panel_Line2.Location = new System.Drawing.Point(216, 0);
-            this.Panel_Line2.Name = "Panel_Line2";
-            this.Panel_Line2.Size = new System.Drawing.Size(1, 307);
-            this.Panel_Line2.TabIndex = 9;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.ListBox_OnlinePlayers);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(224, 204);
-            this.panel1.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label1.Location = new System.Drawing.Point(7, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Online player list:";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 204);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(224, 1);
-            this.panel2.TabIndex = 8;
-            // 
-            // label_S_Info2
-            // 
-            this.label_S_Info2.AutoSize = true;
-            this.label_S_Info2.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label_S_Info2.Location = new System.Drawing.Point(54, 283);
-            this.label_S_Info2.Name = "label_S_Info2";
-            this.label_S_Info2.Size = new System.Drawing.Size(24, 13);
-            this.label_S_Info2.TabIndex = 1;
-            this.label_S_Info2.Text = "VK:";
-            this.label_S_Info2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_S_Info3
-            // 
-            this.label_S_Info3.AutoSize = true;
-            this.label_S_Info3.Location = new System.Drawing.Point(73, 283);
-            this.label_S_Info3.Name = "label_S_Info3";
-            this.label_S_Info3.Size = new System.Drawing.Size(97, 13);
-            this.label_S_Info3.TabIndex = 9;
-            this.label_S_Info3.TabStop = true;
-            this.label_S_Info3.Text = "vk.com/3adrotshot";
-            this.label_S_Info3.Click += new System.EventHandler(this.label_S_Info3_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -606,6 +681,10 @@
             this.MainPanel.PerformLayout();
             this.panel_Server.ResumeLayout(false);
             this.panel_Server.PerformLayout();
+            this.Panel_OnlinePlayers.ResumeLayout(false);
+            this.Panel_OnlinePlayers.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.Header.ResumeLayout(false);
             this.HeadLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Logo)).EndInit();
@@ -613,10 +692,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox_Small)).EndInit();
             this.ExitButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Exit)).EndInit();
-            this.Panel_OnlinePlayers.ResumeLayout(false);
-            this.Panel_OnlinePlayers.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -627,7 +702,6 @@
         private System.Windows.Forms.Panel Header;
         private System.Windows.Forms.Panel SmallWindows;
         private System.Windows.Forms.Panel ExitButton;
-        private System.Windows.Forms.Label HeadName;
         private System.Windows.Forms.Panel HeadLogo;
         private System.Windows.Forms.PictureBox PictureBox_Small;
         private System.Windows.Forms.PictureBox pictureBox_Logo;
@@ -635,7 +709,6 @@
         private System.Windows.Forms.TextBox textBoxNick;
         private System.Windows.Forms.Button ButtonAdd;
         private System.Windows.Forms.Panel panel_Server;
-        private System.Windows.Forms.ListBox ListBoxEnabled;
         public System.Windows.Forms.Button AddEnable2Disable;
         public System.Windows.Forms.Button AddDisable2Enable;
         private System.Windows.Forms.Label label_S_EnableLB;
@@ -661,8 +734,15 @@
         public System.Windows.Forms.ListBox ListBox_OnlinePlayers;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Label_S_OPL;
         private System.Windows.Forms.LinkLabel label_S_Info3;
         private System.Windows.Forms.Label label_S_Info2;
+        private System.Windows.Forms.LinkLabel label_S_Info4;
+        private System.Windows.Forms.Label label_S_Info5;
+        private System.Windows.Forms.Label Label_S_Name;
+        public System.Windows.Forms.Label HeadName;
+        private System.Windows.Forms.LinkLabel label_S_Info7;
+        private System.Windows.Forms.Label label_S_Info6;
+        public System.Windows.Forms.ListBox ListBoxEnabled;
     }
 }
