@@ -22,7 +22,6 @@ Quake Live;
 Если вы где то заметили слово "Reset" то не обращайте внимания, проект крашился не 1 раз)))) 
 
 Поддерживаемые серверы из игр:
-Supported servers from games:
 Counter-Srike Source,
 Left 4 Dead 2,
 Garry's mod,
